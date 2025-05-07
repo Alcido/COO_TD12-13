@@ -1,13 +1,15 @@
-package donnees;
+package test;
 
+import donnees.*;
 import XML.ChargeurCD;
 import XML.ChargeurMagasin;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MagasinTest {
+class MagasinTest2 {
 
     @org.junit.jupiter.api.Test
     void trierArtiste_test() throws FileNotFoundException {
@@ -41,6 +43,23 @@ class MagasinTest {
         //appel méthode
         mag.trierArtiste();
         //verif
+        assertEquals(mag.getCd(0), cd1);
+        assertEquals(mag.getCd(11), cd2);
+    }
+
+    @Test
+    void tri() throws FileNotFoundException {
+        //init données
+        ChargeurMagasin charg = new ChargeurMagasin("musicbrainzSimple/");
+        Magasin mag = charg.chargerMagasin();
+        CD cd1 = new CD("Bénabar", "Bénabar");
+        CD cd2 = new CD("Zebda","Essence ordinaire");
+        ComparateurArtiste cmpArt = new ComparateurArtiste();
+
+        //appel méthode
+        mag.tri(cmpArt);
+        //verif
+//        System.out.println(mag);
         assertEquals(mag.getCd(0), cd1);
         assertEquals(mag.getCd(11), cd2);
     }

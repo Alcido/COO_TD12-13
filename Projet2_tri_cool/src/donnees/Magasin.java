@@ -73,17 +73,50 @@ public class Magasin {
 		return listeCds.size();
 	}
 
-	public void trierArtiste() {
+//	public void trierArtiste() {
+//
+//		ArrayList<CD> copieCD = new ArrayList<CD>(listeCds);
+//		ArrayList<CD> listeFin = new ArrayList<CD>();
+//
+//		while (!copieCD.isEmpty()) {
+//			CD minCD = copieCD.get(0);
+//			for (CD cd : copieCD) {
+//				if (cd.compareToArtiste(minCD) < 0) {
+//					minCD = cd;
+//				}
+//			}
+//			listeFin.add(minCD);
+//			copieCD.remove(minCD);
+//		}
+//		listeCds = listeFin;
+//	}
+//
+//	public void trierAlbum() {
+//
+//		ArrayList<CD> copieCD = new ArrayList<CD>(listeCds);
+//		ArrayList<CD> listeFin = new ArrayList<CD>();
+//
+//		while (!copieCD.isEmpty()) {
+//			CD minCD = copieCD.get(0);
+//			for (CD cd : copieCD) {
+//				if (cd.compareToTitre(minCD) < 0) {
+//					minCD = cd;
+//				}
+//			}
+//			listeFin.add(minCD);
+//			copieCD.remove(minCD);
+//		}
+//		listeCds = listeFin;
+//	}
 
+	public void tri(ComparateurCD comp) {
 		ArrayList<CD> copieCD = new ArrayList<CD>(listeCds);
 		ArrayList<CD> listeFin = new ArrayList<CD>();
 
 		while (!copieCD.isEmpty()) {
 			CD minCD = copieCD.get(0);
 			for (CD cd : copieCD) {
-				if (cd.compareToArtiste(minCD) < 0) {
-					minCD = cd;
-				}
+				if (comp.etreAvant(cd,minCD)) minCD = cd;
 			}
 			listeFin.add(minCD);
 			copieCD.remove(minCD);
@@ -91,21 +124,4 @@ public class Magasin {
 		listeCds = listeFin;
 	}
 
-	public void trierAlbum() {
-
-		ArrayList<CD> copieCD = new ArrayList<CD>(listeCds);
-		ArrayList<CD> listeFin = new ArrayList<CD>();
-
-		while (!copieCD.isEmpty()) {
-			CD minCD = copieCD.get(0);
-			for (CD cd : copieCD) {
-				if (cd.compareToTitre(minCD) < 0) {
-					minCD = cd;
-				}
-			}
-			listeFin.add(minCD);
-			copieCD.remove(minCD);
-		}
-		listeCds = listeFin;
-	}
 }
