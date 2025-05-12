@@ -116,4 +116,10 @@ public class CD {
         return ((Objects.equals(this.nomArtiste, cd.nomArtiste)) && (Objects.equals(this.nomCD, cd.nomCD)));
 	}
 
+	public boolean compareToPiste(CD cd) {
+		int nbPiste1 = this.pistes.size();
+		int nbPiste2 = cd.pistes.size();
+		return nbPiste1 < nbPiste2;
+	}
+
 }
