@@ -124,4 +124,13 @@ public class Magasin {
 		listeCds = listeFin;
 	}
 
+	public ArrayList<CD> chercher(String nom) {
+		ArrayList<CD> listCD = new ArrayList<>();
+		SelecteurArtiste art = new SelecteurArtiste(nom);
+		for (CD cd : listeCds) {
+			if (art.garderCd(cd)) listCD.add(cd);
+		}
+		return listCD;
+	}
+
 }
